@@ -36,14 +36,14 @@ services:
 
   ### Prefect Server API and UI
   server:
-    image: prefecthq/prefect:2.11.5-python3.11
+    image: prefecthq/prefect:3-latest
     restart: always
     volumes:
       - prefect:/root/.prefect
     entrypoint: ["/opt/prefect/entrypoint.sh", "prefect", "server", "start"]
     environment:
-      - PREFECT_UI_URL=http://192.168.1.37:4200/api
-      - PREFECT_API_URL=http://192.168.1.37:4200/api
+      - PREFECT_UI_URL=http://192.168.1.203:4200/api
+      - PREFECT_API_URL=http://192.168.1.203:4200/api
       # If you want to access Prefect Server UI from anywhere other than the Docker host machine, you will need to change
       # PREFECT_UI_URL and PREFECT_API_URL to match the external hostname/IP of the host machine. For example:
       #- PREFECT_UI_URL=http://external-ip:4200/api
@@ -60,7 +60,7 @@ services:
 
   ## Prefect Agent
   agent:
-    image: prefecthq/prefect:2.11.5-python3.11
+    image: prefecthq/prefect:3-latest
     restart: always
     entrypoint:
       [
@@ -79,7 +79,7 @@ services:
 
   ### Prefect CLI
   cli:
-    image: prefecthq/prefect:2.11.5-python3.11
+    image: prefecthq/prefect:3-latest
     entrypoint: "bash"
     working_dir: "/root/flows"
     volumes:
