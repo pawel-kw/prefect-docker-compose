@@ -15,4 +15,4 @@ def greetings(names=["arthur", "trillian", "ford", "marvin"]):
         say_goodbye(name)
 
 if __name__ == "__main__":
-    greetings(["arthur", "trillian", "ford", "marvin"])
+    greetings.serve(name="my-first-deployment", cron="* * * * *")
