@@ -30,8 +30,8 @@ services:
     volumes:
       - "minio:/data"
     ports:
-      - 9999:9000
-      - 9991:9001
+      - 4567:9000
+      - 4568:9001
     profiles: ["minio"]
 
   ### Prefect Server API and UI
